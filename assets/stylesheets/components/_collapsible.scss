@@ -1,0 +1,19 @@
+.collapse-create-codes {
+  border: none;
+  box-shadow: none;
+  li {
+    &.active {
+      .collapsible-header {
+        display: none !important;
+      }
+    }
+    .collapsible-header {
+      border: none;
+      text-transform: capitalize;
+    }
+    .collapsible-body {
+      border: none;
+      padding: 0;
+    }
+  }
+}

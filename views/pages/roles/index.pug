@@ -1,0 +1,45 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.roles.roles}
+
+block breadcrumbTitle
+  | #{lingua.pages.roles.roles}
+
+block breadcrumbs
+  | #{lingua.pages.roles.roles}
+
+block content
+  if successMsg.length
+    div.row
+      div.col.s12
+        div(class="alert-success card-panel")
+          span(class="white-text text-darken-2") #{successMsg}
+  div(class="row")
+    div(class="col s12")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.roles.manage_roles}
+          div(class="row")
+            div.col.s12
+              div.overflow-auto
+                table
+                  thead
+                    tr
+                      th #
+                      th #{lingua.pages.roles.name}
+                      th #{lingua.pages.roles.action}
+                  tbody
+                    each item, index in roles
+                      tr
+                        td= index + 1
+                        td= item.name
+                        td
+                          a(class="update-item", href=`/roles/${item._id}/update`)
+                            i.material-icons edit
+                          a(class="delete-item", href=`/roles/${item._id}/delete`)
+                            i.material-icons clear
+  
+
+  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/roles/create")
+    i(class="material-icons") add

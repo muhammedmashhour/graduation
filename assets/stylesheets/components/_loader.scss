@@ -1,0 +1,27 @@
+.loader {
+  z-index: 1999;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(get-color(dark), .1);
+  &.hide {
+    display: none;
+  }
+  .progress {
+    margin: 0;
+  }
+}
+
+.small-loader {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid get-color(error);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rotate 2s linear infinite;
+}

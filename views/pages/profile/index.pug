@@ -1,0 +1,64 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.profile.profile}
+
+block breadcrumbTitle
+  | #{lingua.pages.profile.profile}
+
+block breadcrumbs
+  | #{lingua.pages.profile.profile}
+
+block content
+  div(class="row")
+    div(class="col s12 m6")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.profile.basic_information}
+          div(class="row")
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.firstName))
+              label #{lingua.pages.profile.first_name}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.lastName))
+              label #{lingua.pages.profile.last_name}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.username))
+              label #{lingua.pages.profile.username}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.job))
+              label #{lingua.pages.profile.job}
+
+            div(class="input-field col s12")
+              a(class="btn btn-small" href="/profile/update_information") #{lingua.pages.profile.update_information}
+                i(class="material-icons right") send
+
+    div(class="col s12 m6")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.profile.additional_information}
+          div(class="row")
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.email))
+              label #{lingua.pages.profile.email}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value="******")
+              label #{lingua.pages.profile.password}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.role))
+              label #{lingua.pages.profile.role}
+
+            div(class="input-field col s12")
+              input(type="text", readonly, value=(user.userId))
+              label #{lingua.pages.profile.user_id}
+
+            div(class="input-field col s12")
+              a(class="btn btn-small" href="/profile/update_password") #{lingua.pages.profile.update_password}
+                i(class="material-icons right") send

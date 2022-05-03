@@ -1,0 +1,30 @@
+nav.navbar
+  div.navbar-collapse
+    button
+      span
+      span
+      span
+  div.search-box
+    button(type="button")
+      span.material-icons search
+    div.search-box__container
+      input(type="serach", name="q", placeholder=(`${lingua.general.search_something} ...`))
+      ul
+        li
+          a(href="#") click me
+        li
+          a(href="#") click me
+        li
+          a(href="#") click me
+  div.user-control
+    ul.nav-list
+      li.nav-item
+        a(class="nav-link", href=(`?lang=${currentLanguage == 'ar' ? 'en' : 'ar'}`))
+          span.material-icons language
+      li.nav-item
+        a(class="nav-link", href="/profile")
+          span.material-icons account_circle
+      li.nav-item
+        a(class="nav-link logout-link", href="/logout")
+          span.material-icons logout
+          span.text #{lingua.general.logout}

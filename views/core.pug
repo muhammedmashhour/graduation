@@ -1,0 +1,35 @@
+doctype html
+html(dir=(currentLanguage == 'ar' ? 'rtl' : 'ltr'))
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    block title
+    link(rel="shortcut icon", href="/imgs/shortcut.png", type="image/x-icon")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href=(`/vendors/materialize/css/materialize-${currentLanguage == 'ar' ? 'rtl' : 'ltr'}.min.css`))
+    link(rel="stylesheet", href=(`/stylesheets/main-${currentLanguage == 'ar' ? 'rtl' : 'ltr'}.css`))
+    block stylesheets
+  body
+    noscript allow javascript to use this app!
+    main.wrapper
+      include layouts/sidebar
+      section(class="content")
+        //-== navbar component ==-//
+        include layouts/navbar
+        //-== content pages ==-//
+        section.main-content
+          //-== breadcrumbs component ==-//
+          include layouts/breadcrumbs
+          block content
+        //-== footer component ==-//
+        include layouts/footer
+
+    div.loader.hide
+      div.progress
+        div.indeterminate
+
+    //-== content scripts ==-//
+    script(src="/vendors/materialize/js/materialize.min.js")
+    script(src="/scripts/main.js")
+    block scripts

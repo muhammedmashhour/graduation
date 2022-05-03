@@ -1,0 +1,60 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.users.users}
+
+block breadcrumbTitle
+  | #{lingua.pages.users.users}
+
+block breadcrumbs
+  | #{lingua.pages.users.users}
+
+block content
+  if successMsg.length
+    div.row
+      div.col.s12
+        div(class="alert-success card-panel")
+          span(class="white-text text-darken-2") #{successMsg}
+  div(class="row")
+    div(class="col s12")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.users.manage_users}
+          div(class="row")
+            div.col.s12
+              div.overflow-auto
+                table
+                  thead
+                    tr
+                      th #
+                      th #{lingua.pages.users.avatar}
+                      th #{lingua.pages.users.first_name}
+                      th #{lingua.pages.users.last_name}
+                      th #{lingua.pages.users.email}
+                      th #{lingua.pages.users.status}
+                      th #{lingua.pages.users.password}
+                      th #{lingua.pages.users.action}
+                  tbody
+                    each item, index in users
+                      tr
+                        td= index + 1
+                        td
+                          img(src=(item.avatar ? `/files/user_avatar/${item.avatar}` : '/imgs/user.png'), class="user-avatar", alt="user avatar")
+                        td= item.first_name
+                        td= item.last_name
+                        td= item.email
+                        td
+                          span(class=('tooltipped user-status'), data-position="top", data-tooltip=(item.confirmed ? lingua.pages.users.active : lingua.pages.users.verify_required))
+                            = item.confirmed ? lingua.pages.users.active : lingua.pages.users.pending
+                        td= '******'
+                        td
+                          a(class="change-password-item", href=`/users/${item._id}/change_password`)
+                            i.material-icons vpn_key
+                          a(class="update-item", href=`/users/${item._id}/update`)
+                            i.material-icons edit
+                          a(class="delete-item", href=`/users/${item._id}/delete`)
+                            i.material-icons clear
+  
+
+  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/users/create")
+    i(class="material-icons") add

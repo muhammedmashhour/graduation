@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title login
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="/vendors/materialize/css/materialize-ltr.min.css")
+    link(rel="stylesheet", href="/stylesheets/main-ltr.css")
+    block stylesheets
+  body
+    noscript allow javascript to use this app!
+
+    section(class="auth")
+      if validationErrors.length
+        div(class="alert-danger card-panel")
+          each err in validationErrors
+            span(class="white-text text-darken-2") #{err.msg}
+      form(method="POST")
+        div(class="row")
+          div(class="input-field col s12")
+            h1 welcome back
+          div(class="input-field col s12")
+            h4 login in
+          div(class="input-field col s12")
+            input(type="text", name="email", id="id_email")
+            label(class="active", for="id_email") Email
+          div(class="input-field col s12 contain-btn")
+            input(type="password", name="password", id="id_password")
+            label(class="active", for="id_password") Password
+            button(type="button", class="toggle-password")
+              span.material-icons visibility
+          div(class="input-field col s12")
+            p
+              label
+                input(type="checkbox")
+                span Remember Your Password
+          div(class="input-field col s12")
+            button(class="btn waves-effect waves-light d-block", type="submit", )
+              | login
+              i(class="material-icons right") login
+            </button>
+
+    //-== content scripts ==-//
+    script(src="/vendors/materialize/js/materialize.min.js")
+    script(src="/scripts/pages/auth.js")

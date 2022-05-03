@@ -1,0 +1,184 @@
+div.sidebar-overlay
+aside.sidebar
+  div.sidebar__header
+    a(class="sidebar__header__brand", href="/")
+      img(src='/imgs/logo.jpg')
+      h1 #{lingua.general.system_name}
+  div.sidebar__user
+    div.sidebar__user__avatar
+      img(src=(user && user.avatar ? `/files/user_avatar/${user.avatar}` : '/imgs/user.png'))
+      span.badge.new
+    div.sidebar__user__info
+      h3 #{user && user.firstName + ' ' + user.lastName}
+      h4 #{user && user.job}
+  div.sidebar__collapse
+    ul(class="collapsible")
+
+      if !etaPermission
+        li(class=(page_name == "auth_eta" ? "active current-page" : ""))
+          a(class="collapsible-header", href="/auth_eta")
+            div
+              span.icon
+                i(class="material-icons") login
+              span.title
+                | #{lingua.layouts.sidebar.auth_eta}
+
+      if etaPermission
+        li(class=(page_name == "dashboard" ? "active current-page" : ""))
+          a(class="collapsible-header", href="/")
+            div
+              span.icon
+                i(class="material-icons") home
+              span.title
+                | #{lingua.layouts.sidebar.dashboard}
+
+      if user.permissions.includes("read_settings")
+        li(class=(page_name == "settings" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") brightness_7
+              span.title
+                | #{lingua.layouts.sidebar.settings}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              li(class="collapse-item")
+                a(class="collapse-link", href="/settings") #{lingua.layouts.sidebar.update_settings}
+              li(class="collapse-item")
+                a(class="collapse-link", href="/settings/taxpayer_info") #{lingua.layouts.sidebar.taxpayer_info}
+
+      if user.permissions.includes("read_roles") || user.permissions.includes("create_roles")
+        li(class=(page_name == "roles" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") border_vertical
+              span.title
+                | #{lingua.layouts.sidebar.roles}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              if user.permissions.includes("create_roles")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/roles/create") #{lingua.layouts.sidebar.create_role}
+              if user.permissions.includes("read_roles")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/roles") #{lingua.layouts.sidebar.manage_roles}
+
+      if user.permissions.includes("read_users") || user.permissions.includes("create_users")
+        li(class=(page_name == "users" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") supervisor_account
+              span.title
+                | #{lingua.layouts.sidebar.users}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              if user.permissions.includes("create_users")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/users/create") #{lingua.layouts.sidebar.create_user}
+              if user.permissions.includes("read_users")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/users") #{lingua.layouts.sidebar.manage_users}
+
+      if user.permissions.includes("read_clients") || user.permissions.includes("create_clients")
+        li(class=(page_name == "clients" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") supervisor_account
+              span.title
+                | #{lingua.layouts.sidebar.clients}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              if user.permissions.includes("create_clients")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/clients/create") #{lingua.layouts.sidebar.create_client}
+              if user.permissions.includes("read_clients")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/clients") #{lingua.layouts.sidebar.manage_clients}
+
+      if etaPermission
+        li(class=(page_name == "codes" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") code
+              span.title
+                | #{lingua.layouts.sidebar.codes}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              li(class="collapse-item")
+                a(class="collapse-link", href="/codes/create") #{lingua.layouts.sidebar.create_code}
+              li(class="collapse-item")
+                a(class="collapse-link", href="/codes") #{lingua.layouts.sidebar.manage_codes}
+
+      if etaPermission
+        li(class=(page_name == "documents" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") insert_drive_file
+              span.title
+                | #{lingua.layouts.sidebar.documents}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              li(class="collapse-item")
+                a(class="collapse-link", href="/documents/create") #{lingua.layouts.sidebar.create_document}
+              li(class="collapse-item")
+                a(class="collapse-link", href="/documents") #{lingua.layouts.sidebar.recent_documents}
+              li(class="collapse-item")
+                a(class="collapse-link", href="/draft_documents") #{lingua.layouts.sidebar.draft_documents}
+      
+      if etaPermission
+        li
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") swap_horiz
+              span.title
+                | #{lingua.layouts.sidebar.reports}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") valid
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") review
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") rejected
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") pending
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") reports
+              li(class="collapse-item")
+                a(class="collapse-link", href="#") taxes percentage
+
+      if etaPermission
+        li
+          a(class="collapsible-header", href="#")
+            div
+              span.icon
+                i(class="material-icons") fingerprint
+              span.title
+                | #{lingua.layouts.sidebar.token}

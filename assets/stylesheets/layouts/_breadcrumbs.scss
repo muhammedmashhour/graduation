@@ -1,0 +1,30 @@
+.breadcrumbs {
+  background: none;
+  box-shadow: none;
+  height: auto;
+  line-height: normal;
+  margin-bottom: 2rem;
+  .general-title {
+    font-size: 20px;
+    color: get-color(dark);
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0rem 0 1rem;
+  }
+  .nav-wrapper {
+    a, span {
+      color: get-color(dark);
+      text-transform: capitalize;
+      font-size: 13px;
+      font-weight: bold;
+      display: inline-block;
+      &::before {
+        color: get-color(dark);
+        font-size: 15px;
+      }
+    }
+    span {
+      color: rgba(get-color(dark), .8);
+    }
+  }
+}

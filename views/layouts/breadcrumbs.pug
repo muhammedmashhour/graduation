@@ -1,0 +1,9 @@
+div.row
+  .col.s12
+    nav.breadcrumbs
+      h1.general-title
+        block breadcrumbTitle
+      div(class="nav-wrapper")
+        a(href="/", class="breadcrumb") #{lingua.layouts.breadcrumbs.home}
+        span(class="breadcrumb")
+          block breadcrumbs

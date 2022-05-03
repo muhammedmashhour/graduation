@@ -1,0 +1,28 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.roles.delete_role}
+
+block breadcrumbTitle
+  | #{lingua.pages.roles.delete_role}
+
+block breadcrumbs
+  | #{lingua.pages.roles.delete_role}
+
+block content
+  div(class="row")
+    div(class="col s12")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.roles.delete_role}
+          div(class="row")
+            div.col.s12
+              form(class="main-form", method="POST")
+                div(class="row")
+
+                  div(class="input-field col s12")
+                    h5.delete-item-head #{lingua.general.delete_item}
+
+                  div(class="input-field col s12")
+                    button(class="btn waves-effect waves-light" type="submit") #{lingua.general.save}
+                      i(class="material-icons right") send

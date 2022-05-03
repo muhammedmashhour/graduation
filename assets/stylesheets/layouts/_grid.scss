@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  section.content {
+    width: 100%;
+    transition: .3s;
+    overflow: hidden;
+    @include largeScreen {
+      margin-#{$start}: 300px;
+    }
+    section.main-content {
+      padding: 1.5rem .25rem;
+      min-height: calc(100vh - (117.5px));
+      @include smallScreen {
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+}

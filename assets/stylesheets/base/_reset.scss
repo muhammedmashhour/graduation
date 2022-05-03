@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+}
+
+.card, .card-panel {
+  box-shadow: none;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.no-position {
+  position: static !important;
+}
+
+.collapsible-header i {
+  margin: auto !important;
+}

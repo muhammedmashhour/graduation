@@ -1,0 +1,52 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.roles.create_role}
+
+block breadcrumbTitle
+  | #{lingua.pages.roles.create_role}
+
+block breadcrumbs
+  | #{lingua.pages.roles.create_role}
+
+block content
+  if validationErrors.length
+    div.row
+      div.col.s12
+        div(class="alert-danger card-panel")
+          each error, index in validationErrors
+            span(class="white-text text-darken-2") #{error.msg}
+  div(class="row")
+    div(class="col s12")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.roles.create_role}
+          div(class="row")
+            div.col.s12
+              form(class="main-form", method="POST")
+                div(class="row")
+
+                  div(class="input-field col s12")
+                    input(type="text", name="name" id="id_name")
+                    label(for="id_name") #{lingua.pages.roles.name}
+
+                  div(class="input-field col s12")
+                    button(class="btn waves-effect waves-light check-all-permissions" type="button") #{lingua.pages.roles.select_all}
+                    button(class="btn waves-effect red waves-light remove-all-permissions" type="button") #{lingua.pages.roles.remove_all}
+
+                  each item, index in permissions
+                    div(class="input-field col s12")
+                      div(class="row")
+                        each permission, index in item.permissions
+                          div(class="col s12 m6 l3")
+                            p
+                              label
+                                input(type="checkbox", class="filled-in", name="permissions", value=(`${permission}_${item.page_name}`))
+                                span #{permission}_#{item.page_name}
+
+                  div(class="input-field col s12")
+                    button(class="btn waves-effect waves-light" type="submit") #{lingua.general.save}
+                      i(class="material-icons right") send
+
+block scripts
+  script(src="/scripts/pages/roles.js")
