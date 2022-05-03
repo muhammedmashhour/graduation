@@ -33,13 +33,13 @@ const postAuth = async (req, res) => {
       role: role.name,
       permissions: role.permissions
     }
-    res.redirect('/auth_eta')
+    res.redirect('/')
   })
 };
 
 const logout = (req, res) => {
   req.session.destroy();
-  res.redirect('/login');
+  res.redirect('/');
 };
 
 module.exports = {

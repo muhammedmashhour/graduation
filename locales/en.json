@@ -222,5 +222,24 @@
       "document_hint_step5": "then you will get a file called FullSignedDocument.json",
       "document_hint_step6": "in the sidebar at the erp click the upload draft document and select the document"
     }
+  },
+  "client": {
+    "general": {
+      "navbar": {
+        "brand": "boot store",
+        "home": "home",
+        "about": "about",
+        "categories": "categories",
+        "blogs": "blogs",
+        "contact": "contact",
+        "login": "login",
+        "logout": "logout",
+        "admin": "admin",
+        "search": "search"
+      },
+      "footer": {
+        "copyrights": "copyrights reserved to"
+      }
+    }
   }
 }

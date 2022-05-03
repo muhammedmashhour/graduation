@@ -1,0 +1,32 @@
+extends ../core
+
+block title
+  title contact
+
+block body
+  section.contact_section.layout_padding
+    .container
+      .row
+        .col-md-6
+          .heading_container
+            h2.
+              
+              Contact Us
+              
+          form(action='#')
+            div
+              input(type='text' placeholder='Name')
+            div
+              input(type='email' placeholder='Email')
+            div
+              input(type='text' placeholder='Pone Number')
+            div
+              input.message-box(type='text' placeholder='Message')
+            .btn-box
+              button.
+                
+                SEND
+                
+        .col-md-6
+          .img-box
+            img(src='/client/images/contact-img.png' alt)

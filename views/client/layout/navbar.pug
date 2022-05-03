@@ -1,0 +1,41 @@
+header.header_section
+  .container-fluid
+    nav.navbar.navbar-expand-lg.custom_nav-container
+      a.navbar-brand(href='/')
+        span #{lingua.client.general.navbar.brand}
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span
+      .collapse.navbar-collapse#navbarSupportedContent
+        ul.navbar-nav
+          li.nav-item.active
+            a.nav-link.pl-lg-0(href='/') #{lingua.client.general.navbar.home}
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/about') #{lingua.client.general.navbar.about}
+          li.nav-item
+            a.nav-link(href='/categories') #{lingua.client.general.navbar.categories}
+          li.nav-item
+            a.nav-link(href='/blogs') #{lingua.client.general.navbar.blogs}
+          li.nav-item
+            a.nav-link(href='/contact') #{lingua.client.general.navbar.contact}
+          li.nav-item
+            a(class="nav-link", href=(`?lang=${currentLanguage == 'ar' ? 'en' : 'ar'}`), title=(currentLanguage == 'ar' ? 'switch to en' : 'switch to ar'))
+              i.fa.fa-globe
+          
+          if user
+            if user.permissions.length > 0
+              li.nav-item
+                a.nav-link.text-info(href='/admin') #{lingua.client.general.navbar.admin}
+            else
+              li.nav-item
+                a.nav-link.text-info(href='/logout') #{lingua.client.general.navbar.logout}
+          else
+            li.nav-item
+              a.nav-link.text-info(href='/login') #{lingua.client.general.navbar.login}
+
+          
+          
+        from.search_form
+          input.form-control(type='text' placeholder=(lingua.client.general.navbar.search))
+          button(type='submit')
+            i.fa.fa-search(aria-hidden='true')

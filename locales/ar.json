@@ -222,5 +222,24 @@
       "document_hint_step5": "بعد ذلك ستحصل على ملف باسم: FullSignedDocument.json",
       "document_hint_step6": "في القائمة الجانبية في النظام قم بالضغط على المستندات ومنها اختر رفع مسودة مستند."
     }
+  },
+  "client": {
+    "general": {
+      "navbar": {
+        "brand": "معرض الكتاب",
+        "home": "الرئيسية",
+        "about": "من نحن",
+        "categories": "التصنيفات",
+        "blogs": "المقالات",
+        "contact": "تواصل معنا",
+        "login": "تسجيل الدخول",
+        "logout": "تسجيل الخروج",
+        "admin": "لوحة التحكم",
+        "search": "بحث"
+      },
+      "footer": {
+        "copyrights": "جميع الحقوق محفوظة الى"
+      }
+    }
   }
 }

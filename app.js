@@ -37,7 +37,7 @@ const store = new MongoDbStore({
 app.use(session({
   secret: "this is a secret msg",
   cookie: {
-    maxAge: 1000 * 60 * 60 // 1 h
+    maxAge: 1000 * 60 * 60 * 24// 1 h
   },
   store,
   resave: true,
@@ -66,12 +66,18 @@ app.use((req, res, next) => {
   next();
 });
 
-/*== routes ==*/
+/*== client routes ==*/
+app.use("/", require("./routes/client/client.routes"));
+
+
+
+
+/*== backend routes ==*/
 app.use("/", require("./routes/auth.route"));
-app.use("/", require("./routes/profile.route"));
-app.use("/", require("./routes/dashboard.route"));
-app.use("/", require("./routes/roles.route"));
-app.use("/", require("./routes/users.route"));
+app.use("/admin", require("./routes/profile.route"));
+app.use("/admin", require("./routes/dashboard.route"));
+app.use("/admin", require("./routes/roles.route"));
+app.use("/admin", require("./routes/users.route"));
 
 /*== 403 page ==*/
 app.use('/not_allowed', (req, res) => {

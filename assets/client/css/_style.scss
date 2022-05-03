@@ -142,7 +142,7 @@ a:focus {
   button {
     position: absolute;
     top: 3px;
-    right: 3px;
+    #{$end}: 3px;
     width: 35px;
     height: 35px;
     padding: 0;
@@ -171,7 +171,7 @@ a:focus {
   padding: 0;
 
   .navbar-nav {
-    margin-left: auto;
+    margin-#{$start}: auto;
 
     .nav-item {
       .nav-link {
@@ -179,9 +179,6 @@ a:focus {
         color: $white;
         text-align: center;
       }
-
-      &:hover,
-      &.active {}
     }
   }
 }
@@ -211,7 +208,7 @@ a:focus {
     &::after {
       content: "";
       position: absolute;
-      left: 0;
+      #{$start}: 0;
       height: 100%;
       width: 100%;
       background-color: $white;
@@ -288,7 +285,7 @@ a:focus {
   .carousel_btn_box {
     position: absolute;
     bottom: 0;
-    left: 15px;
+    #{$start}: 15px;
     display: flex;
     justify-content: space-between;
     width: 105px;
@@ -446,7 +443,7 @@ a:focus {
 
     .img-box {
       width: 125px;
-      margin-right: 15px;
+      margin-#{$end}: 15px;
 
       img {
         width: 100%;
@@ -488,7 +485,7 @@ a:focus {
 
       .blog_date {
         position: absolute;
-        left: 25px;
+        #{$start}: 25px;
         bottom: 0;
         padding: 10px 25px;
         font-size: 18px;
@@ -537,7 +534,7 @@ a:focus {
   }
 
   form {
-    padding-right: 35px;
+    padding-#{$end}: 35px;
   }
 
   input {
@@ -546,7 +543,7 @@ a:focus {
     height: 50px;
     border-radius: 25px;
     margin-bottom: 25px;
-    padding-left: 25px;
+    padding-#{$start}: 25px;
     outline: none;
     color: #101010;
     background: #f1f1f1;
@@ -607,7 +604,7 @@ a:focus {
         color: $white;
 
         i {
-          margin-right: 5px;
+          margin-#{$end}: 5px;
         }
 
         &:hover {
@@ -632,7 +629,7 @@ a:focus {
       border-radius: 100%;
       background-color: $white;
       border-radius: 100%;
-      margin-right: 5px;
+      margin-#{$end}: 5px;
       font-size: 18px;
 
       &:hover {

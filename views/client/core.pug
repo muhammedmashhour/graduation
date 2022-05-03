@@ -1,0 +1,39 @@
+doctype html
+html(dir=(currentLanguage == 'ar' ? 'rtl' : 'ltr'))
+
+  head
+    //  Basic 
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    //  Mobile Metas 
+    meta(name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no')
+    //  Site Metas 
+    link(rel='icon' href='images/favicon.png' type='image/gif')
+    meta(name='keywords' content)
+    meta(name='description' content)
+    meta(name='author' content)
+    block title
+    //  bootstrap core css 
+    link(rel='stylesheet' href='/client/css/bootstrap.css')
+    //- link(rel="stylesheet", href=(`/vendors/materialize/css/materialize-${currentLanguage == 'ar' ? 'rtl' : 'ltr'}.min.css`))
+    //  font awesome style 
+    link(href='/client/css/font-awesome.min.css' rel='stylesheet')
+    //  Custom styles for this template 
+    link(rel="stylesheet", href=(`/client/css/style-${currentLanguage == 'ar' ? 'rtl' : 'ltr'}.css`))
+    //  responsive style 
+    link(href='/client/css/responsive.css' rel='stylesheet')
+
+
+  body
+    include layout/navbar
+    block body
+    include layout/footer
+    
+
+    //  jQery 
+    script(src='/client/js/jquery-3.4.1.min.js')
+    //  bootstrap js 
+    script(src='/client/js/bootstrap.js')
+    //  custom js 
+    script(src='/client/js/custom.js')
+
