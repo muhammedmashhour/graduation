@@ -3,7 +3,7 @@ const Books = require('../../models/Books.model');
 
 const getHome = async (req, res) => {
   const categories = await Categories.find().limit(9);
-  const books = await Books.find().limit();
+  const books = await Books.find().limit(10).populate({path: 'category', model: 'categories'});
   res.render("client/pages/home", {
     categories,
     books

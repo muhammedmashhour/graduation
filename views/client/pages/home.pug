@@ -8,81 +8,20 @@ block body
   section.slider_section
     #customCarousel1.carousel.slide(data-ride='carousel')
       .carousel-inner
-        .carousel-item.active
-          .container
-            .row
-              .col-md-6
-                .detail-box
-                  h5.
-                    
-                    Bostorek Bookstore
-                    
-                  h1
-                    | For All Your
-                    br
-                    | Reading Needs
-
-                  p.
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    
-                  a(href).
-                    
-                    Read More
-                    
-              .col-md-6
-                .img-box
-                  img(src='/client/images/slider-img.png' alt)
-        .carousel-item
-          .container
-            .row
-              .col-md-6
-                .detail-box
-                  h5.
-                    
-                    Bostorek Bookstore
-                    
-                  h1
-                    | For All Your
-                    br
-                    | Reading Needs
-
-                  p.
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    
-                  a(href).
-                    
-                    Read More
-                    
-              .col-md-6
-                .img-box
-                  img(src='/client/images/slider-img.png' alt)
-        .carousel-item
-          .container
-            .row
-              .col-md-6
-                .detail-box
-                  h5.
-                    
-                    Bostorek Bookstore
-                    
-                  h1
-                    | For All Your
-                    br
-                    | Reading Needs
-
-                  p.
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    
-                  a(href).
-                    
-                    Read More
-                    
-              .col-md-6
-                .img-box
-                  img(src='/client/images/slider-img.png' alt)
+        for book, index in books
+          div(class=`carousel-item ${index == 0 ? 'active': ''}`)
+            .container
+              .row
+                .col-md-6
+                  .detail-box
+                    h1= book.category && book.category.name
+                    h5= book.name
+                    p= book.description
+                    a(href="/books")= lingua.client.general.read_more
+                      
+                .col-md-6
+                  .img-box
+                    img(src=`${book.image ? `/files/books/${book.image}` : '/client/images/slider-img.png'}` alt="book")
       .carousel_btn_box
         a.carousel-control-prev(href='#customCarousel1' role='button' data-slide='prev')
           i.fa.fa-angle-left(aria-hidden='true')
@@ -95,8 +34,7 @@ block body
     .catagory_container
       .container
         .heading_container.heading_center
-          h2 Books Categories
-          p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+          h2= lingua.client.general.books_categories
             
         .row
           if categories.length
@@ -115,11 +53,10 @@ block body
   section.book_section.layout_padding
     .container
       .heading_container.heading_center
-        h2 Books
-        p there are many books
+        h2= lingua.client.general.books
       .row
         for book, index in books
-          .col-md-4
+          .col-md-4.col-lg-3
             .box
               .img-box
                 img(src=(book.image ? `/files/books/${book.image}` : '/client/images/b1.jpg'))
@@ -127,6 +64,7 @@ block body
                   span #{`${book.price} EG`}
               .detail-box
                 h5= book.name ? book.name : "no name"
+                p= book.category ? book.category.name : "no category"
                 p= book.description ? book.description : "no description"
                 button(type="button", class="add-to-cart-btn", data-book-id=(book._id)) add to cart
               
@@ -134,96 +72,24 @@ block body
         div.pt-5.text-center
           a(href="/books", class="btn btn-info") #{lingua.client.general.read_more.toUpperCase()}
 
-  section.client_section.layout_padding
-    .container
-      .heading_container.heading_center
-        h2.
-          
-          What Says Customers
-          
-        hr
-      .row
-        .col-md-6.mx-auto
-          .client_container
-            .detail-box
-              p.
-                
-                Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-                
-              span
-                i.fa.fa-quote-left(aria-hidden='true')
-            .client_id
-              .img-box
-                img(src='/client/images/c1.jpg' alt)
-              .client_name
-                h5.
-                  
-                  Jone Mark
-                  
-                h6.
-                  
-                  Student
-                  
-        .col-md-6.mx-auto
-          .client_container
-            .detail-box
-              p.
-                
-                Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-                
-              span
-                i.fa.fa-quote-left(aria-hidden='true')
-            .client_id
-              .img-box
-                img(src='/client/images/c2.jpg' alt)
-              .client_name
-                h5.
-                  
-                  Anna Crowe
-                  
-                h6.
-                  
-                  Student
-                  
-        .col-lg-6.mx-auto
-          .client_container
-            .detail-box
-              p.
-                
-                Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-                
-              span
-                i.fa.fa-quote-left(aria-hidden='true')
-            .client_id
-              .img-box
-                img(src='/client/images/c3.jpg' alt)
-              .client_name
-                h5.
-                  
-                  Hilley James
-                  
-                h6.
-                  
-                  Student
-                
   section.contact_section.layout_padding
     .container
       .row
         .col-md-6
           .heading_container
-            h2 Contact Us
+            h2= lingua.client.pages.contact.contact
               
           form(action='#')
             div
-              input(type='text' placeholder='Name')
+              input(type='text' placeholder=(lingua.client.pages.contact.name))
             div
-              input(type='email' placeholder='Email')
+              input(type='email' placeholder=(lingua.client.pages.contact.email))
             div
-              input(type='text' placeholder='Pone Number')
+              input(type='text' placeholder=(lingua.client.pages.contact.phone))
             div
-              input.message-box(type='text' placeholder='Message')
+              input.message-box(type='text' placeholder=lingua.client.pages.contact.message)
             .btn-box
-              button SEND
+              button #{lingua.client.pages.contact.send.toString()}
                 
         .col-md-6
           .img-box
