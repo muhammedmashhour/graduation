@@ -99,90 +99,20 @@ block body
           p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
             
         .row
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat1.png' alt)
-              .detail-box
-                h5 Textbooks
-                p fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
+          if categories.length
+            for category, index in categories
+              .col-sm-6.col-md-4
+                .box
+                  .img-box
+                    img(src=`/client/images/cat${index < 5 ? index + 1 : 1 }.png` alt)
+                  .detail-box
+                    h5= category.name
+                    p= category.description
+        if categories.length > 6
+          div.pt-5.text-center
+            a(href="/categories", class="btn btn-info") #{lingua.client.general.read_more.toUpperCase()}
                   
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat1.png' alt)
-              .detail-box
-                h5 Textbooks
-                p fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat1.png' alt)
-              .detail-box
-                h5 Textbooks
-                p fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat2.png' alt)
-              .detail-box
-                h5 Science
-                p fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat3.png' alt)
-              .detail-box
-                h5.
-                  
-                  History
-                  
-                p.
-                  
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat4.png' alt)
-              .detail-box
-                h5.
-                  
-                  Biography
-                  
-                p.
-                  
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat5.png' alt)
-              .detail-box
-                h5.
-                  
-                  Adventure
-                  
-                p.
-                  
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
-          .col-sm-6.col-md-4
-            .box
-              .img-box
-                img(src='/client/images/cat6.png' alt)
-              .detail-box
-                h5.
-                  
-                  Fantasy
-                  
-                p.
-                  
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                  
+          
   section.about_section.layout_padding
     .container
       .row

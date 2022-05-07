@@ -31,7 +31,6 @@ block content
                       th #{lingua.pages.users.first_name}
                       th #{lingua.pages.users.last_name}
                       th #{lingua.pages.users.email}
-                      th #{lingua.pages.users.status}
                       th #{lingua.pages.users.password}
                       th #{lingua.pages.users.action}
                   tbody
@@ -43,18 +42,15 @@ block content
                         td= item.first_name
                         td= item.last_name
                         td= item.email
-                        td
-                          span(class=('tooltipped user-status'), data-position="top", data-tooltip=(item.confirmed ? lingua.pages.users.active : lingua.pages.users.verify_required))
-                            = item.confirmed ? lingua.pages.users.active : lingua.pages.users.pending
                         td= '******'
                         td
-                          a(class="change-password-item", href=`/users/${item._id}/change_password`)
+                          a(class="change-password-item", href=`/admin/users/${item._id}/change_password`)
                             i.material-icons vpn_key
-                          a(class="update-item", href=`/users/${item._id}/update`)
+                          a(class="update-item", href=`/admin/users/${item._id}/update`)
                             i.material-icons edit
-                          a(class="delete-item", href=`/users/${item._id}/delete`)
+                          a(class="delete-item", href=`/admin/users/${item._id}/delete`)
                             i.material-icons clear
   
 
-  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/users/create")
+  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/admin/users/create")
     i(class="material-icons") add

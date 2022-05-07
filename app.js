@@ -78,6 +78,7 @@ app.use("/admin", require("./routes/profile.route"));
 app.use("/admin", require("./routes/dashboard.route"));
 app.use("/admin", require("./routes/roles.route"));
 app.use("/admin", require("./routes/users.route"));
+app.use("/admin", require("./routes/categories.route"));
 
 /*== 403 page ==*/
 app.use('/not_allowed', (req, res) => {

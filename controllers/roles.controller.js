@@ -25,14 +25,14 @@ const postCreateRole = (req, res) => {
   // handle validation errors if exists
   if (!validationResult(req).isEmpty()) {
     req.flash("validationErrors", validationResult(req).array());
-    return res.redirect('/roles/create');
+    return res.redirect('/admin/roles/create');
   }
 
   const newRecord = new Roles(req.body)
   newRecord.save()
   .then(response => {
     req.flash('successMsg', `${res.lingua.content.general.item_created}`);
-    res.redirect('/roles');
+    res.redirect('/admin/roles');
   })
   .catch(err => {
     res.end("there is an error");
@@ -58,7 +58,7 @@ const postUpdateRole = (req, res) => {
   // handle validation errors if exists
   if (!validationResult(req).isEmpty()) {
     req.flash("validationErrors", validationResult(req).array());
-    return res.redirect(`/roles/${req.params.roleId}/update`);
+    return res.redirect(`/admin/roles/${req.params.roleId}/update`);
   }
 
 
@@ -74,7 +74,7 @@ const postUpdateRole = (req, res) => {
     if (req.session.user.role === role.name) return res.redirect('/logout');
 
     req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
-    res.redirect("/roles");
+    res.redirect("/admin/roles");
   })
   .catch(err => {
     res.end("something went wrong");
@@ -93,7 +93,7 @@ const postDeleteRole = async (req, res) => {
     role.delete()
     .then(_ => {
       req.flash("successMsg", `${res.lingua.content.general.item_deleted}`);
-      res.redirect("/roles");
+      res.redirect("/admin/roles");
     })
     .catch(err => {
       res.end("something went wrong");

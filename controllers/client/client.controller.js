@@ -1,17 +1,25 @@
-const getHome = (req, res) => {
-  res.render("client/pages/home");
+const Categories = require('../../models/Categories.model');
+
+const getHome = async (req, res) => {
+  const categories = await Categories.find().limit(9);
+  res.render("client/pages/home", {
+    categories
+  });
 }
 
 const getAbout = (req, res) => {
   res.render("client/pages/about");
 }
 
-const getCategories = (req, res) => {
-  res.render("client/pages/categories");
+const getCategories = async (req, res) => {
+  const categories = await Categories.find()
+  res.render("client/pages/categories", {
+    categories
+  });
 }
 
-const getBlogs = (req, res) => {
-  res.render("client/pages/blogs");
+const getBooks = (req, res) => {
+  res.render("client/pages/books");
 }
 
 const getContact = (req, res) => {
@@ -22,6 +30,6 @@ module.exports = {
   getHome,
   getAbout,
   getCategories,
-  getBlogs,
+  getBooks,
   getContact
 }

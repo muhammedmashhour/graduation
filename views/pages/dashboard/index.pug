@@ -20,28 +20,24 @@ block content
         div.col.s12.m6.xl3
           div.card
             h4.card-title #{lingua.pages.dashboard.total_users}
-            h5.card-count.users-count
-              span.small-loader
+            h5.card-count
+              | 0
             span.material-icons supervisor_account
         div.col.s12.m6.xl3
           div.card.sec
-            h4.card-title #{lingua.pages.dashboard.total_documents}
-            h5.card-count.documents-count
-              span.small-loader
+            h4.card-title #{lingua.pages.dashboard.total_books}
+            h5.card-count
+              | 0
             span.material-icons insert_drive_file
         div.col.s12.m6.xl3
           div.card
-            h4.card-title #{lingua.pages.dashboard.valid_documents}
-            h5.card-count.valid-documents-count
-              span.small-loader
+            h4.card-title #{lingua.pages.dashboard.total_orders}
+            h5.card-count
+              | 0
             span.material-icons content_paste
         div.col.s12.m6.xl3
           div.card
-            h4.card-title #{lingua.pages.dashboard.total_clients}
-            h5.card-count.clients-count
-              span.small-loader
+            h4.card-title #{lingua.pages.dashboard.total_roles}
+            h5.card-count
+              | 0
             span.material-icons account_circle
-
-
-block scripts
-  script(src="/scripts/pages/dashboard.js")

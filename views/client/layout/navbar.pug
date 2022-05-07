@@ -15,7 +15,7 @@ header.header_section
           li.nav-item
             a.nav-link(href='/categories') #{lingua.client.general.navbar.categories}
           li.nav-item
-            a.nav-link(href='/blogs') #{lingua.client.general.navbar.blogs}
+            a.nav-link(href='/books') #{lingua.client.general.navbar.books}
           li.nav-item
             a.nav-link(href='/contact') #{lingua.client.general.navbar.contact}
           li.nav-item
@@ -25,7 +25,7 @@ header.header_section
           if user
             if user.permissions.length > 0
               li.nav-item
-                a.nav-link.text-info(href='/admin') #{lingua.client.general.navbar.admin}
+                a.nav-link.text-info(href='/admin/profile') #{lingua.client.general.navbar.admin}
             else
               li.nav-item
                 a.nav-link.text-info(href='/logout') #{lingua.client.general.navbar.logout}

@@ -1,5 +1,9 @@
 const permissions = [
   {
+    page_name: 'dashboard',
+    permissions: ['read']
+  },
+  {
     page_name: 'settings',
     permissions: ['read', 'update']
   },
@@ -9,6 +13,10 @@ const permissions = [
   },
   {
     page_name: 'users',
+    permissions: ['read', 'create', 'update', 'delete']
+  },
+  {
+    page_name: 'categories',
     permissions: ['read', 'create', 'update', 'delete']
   },
 ];

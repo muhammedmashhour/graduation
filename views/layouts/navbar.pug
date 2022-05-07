@@ -19,10 +19,13 @@ nav.navbar
   div.user-control
     ul.nav-list
       li.nav-item
+        a(class="nav-link", href="/")
+          span.material-icons shuffle
+      li.nav-item
         a(class="nav-link", href=(`?lang=${currentLanguage == 'ar' ? 'en' : 'ar'}`))
           span.material-icons language
       li.nav-item
-        a(class="nav-link", href="/profile")
+        a(class="nav-link", href="/admin/profile")
           span.material-icons account_circle
       li.nav-item
         a(class="nav-link logout-link", href="/logout")

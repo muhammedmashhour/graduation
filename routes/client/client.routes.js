@@ -4,7 +4,7 @@ const {
   getHome,
   getAbout,
   getCategories,
-  getBlogs,
+  getBooks,
   getContact
 } = require("../../controllers/client/client.controller");
 
@@ -26,8 +26,8 @@ router.get(
 );
 
 router.get(
-  "/blogs",
-  getBlogs
+  "/books",
+  getBooks
 );
 
 router.get(

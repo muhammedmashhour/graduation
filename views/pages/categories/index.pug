@@ -1,13 +1,13 @@
 extends ../../core
 
 block title
-  title #{lingua.pages.roles.roles}
+  title #{lingua.pages.categories.categories}
 
 block breadcrumbTitle
-  | #{lingua.pages.roles.roles}
+  | #{lingua.pages.categories.categories}
 
 block breadcrumbs
-  | #{lingua.pages.roles.roles}
+  | #{lingua.pages.categories.categories}
 
 block content
   if successMsg.length
@@ -19,7 +19,7 @@ block content
     div(class="col s12")
       div(class="card")
         div(class="card-content")
-          span(class="card-title") #{lingua.pages.roles.manage_roles}
+          span(class="card-title") #{lingua.pages.categories.manage_categories}
           div(class="row")
             div.col.s12
               div.overflow-auto
@@ -27,19 +27,21 @@ block content
                   thead
                     tr
                       th #
-                      th #{lingua.pages.roles.name}
-                      th #{lingua.pages.roles.action}
+                      th #{lingua.pages.categories.name}
+                      th #{lingua.pages.categories.description}
+                      th #{lingua.pages.categories.action}
                   tbody
-                    each item, index in roles
+                    each item, index in categories
                       tr
                         td= index + 1
                         td= item.name
+                        td= item.description
                         td
-                          a(class="update-item", href=`/admin/roles/${item._id}/update`)
+                          a(class="update-item", href=`/admin/categories/${item._id}/update`)
                             i.material-icons edit
-                          a(class="delete-item", href=`/admin/roles/${item._id}/delete`)
+                          a(class="delete-item", href=`/admin/categories/${item._id}/delete`)
                             i.material-icons clear
   
 
-  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/admin/roles/create")
+  a(class="create-item-btn btn-floating btn-large waves-effect waves-light pulse", href="/admin/categories/create")
     i(class="material-icons") add

@@ -25,7 +25,7 @@ const postCreateUser = async (req, res) => {
   // handle validation errors if exists
   if (!validationResult(req).isEmpty()) {
     req.flash("validationErrors", validationResult(req).array());
-    return res.redirect('/users/create');
+    return res.redirect('/admin/users/create');
   }
 
 
@@ -33,14 +33,14 @@ const postCreateUser = async (req, res) => {
 
     if (req.body.password !== req.body.confirm_password) {
       req.flash("validationErrors", [{"msg": "password and confirm password don't match!"}]);
-      return res.redirect('/users/create');
+      return res.redirect('/admin/users/create');
     }
 
     const checkEmail = await Users.findOne({email: req.body.email.toLowerCase()});
 
     if (checkEmail) {
       req.flash("validationErrors", [{"msg": "this user is already exists!"}]);
-      return res.redirect('/users/create');
+      return res.redirect('/admin/users/create');
     }
     const newRecord = new Users({
       ...req.body,
@@ -55,7 +55,7 @@ const postCreateUser = async (req, res) => {
       newRecord.save()
       .then(async () => {
         req.flash('successMsg', `${res.lingua.content.general.item_created}`);
-        res.redirect('/users');
+        res.redirect('/admin/users');
 
         // jwt.sign(
           // { id: newRecord._id.toString() },
@@ -99,7 +99,7 @@ const postCreateUser = async (req, res) => {
           //   `,
           // });
           // req.flash('successMsg', `${res.lingua.content.general.item_created}`);
-          // res.redirect('/users');
+          // res.redirect('/admin/users');
         // });
       })
       .catch(err => {
@@ -135,7 +135,7 @@ const postUpdateUser = (req, res) => {
   // handle validation errors if exists
   if (!validationResult(req).isEmpty()) {
     req.flash("validationErrors", validationResult(req).array());
-    return res.redirect(`/users/${req.params.userId}/update`);
+    return res.redirect(`/admin/users/${req.params.userId}/update`);
   }
 
   try {
@@ -148,7 +148,7 @@ const postUpdateUser = (req, res) => {
     )
     .then(_ => {
       req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
-      res.redirect("/users");
+      res.redirect("/admin/users");
     })
     .catch(err => {
       res.end("something went wrong");
@@ -172,7 +172,7 @@ const postDeleteUser = async (req, res) => {
     userData.delete()
     .then(_ => {
       req.flash("successMsg", `${res.lingua.content.general.item_deleted}`);
-      res.redirect("/users");
+      res.redirect("/admin/users");
     })
     .catch(err => {
       res.end("something went wrong");
@@ -194,12 +194,12 @@ const postChangePassword = (req, res) => {
   // handle validation errors if exists
   if (!validationResult(req).isEmpty()) {
     req.flash("validationErrors", validationResult(req).array());
-    return res.redirect(`/users/${req.params.userId}/change_password`);
+    return res.redirect(`/admin/users/${req.params.userId}/change_password`);
   }
 
   if (req.body.new_password !== req.body.confirm_new_password) {
     req.flash("validationErrors", [{'msg': 'passwords don"t match'}]);
-    return res.redirect(`/users/${req.params.userId}/change_password`);
+    return res.redirect(`/admin/users/${req.params.userId}/change_password`);
   }
 
   try {
@@ -215,7 +215,7 @@ const postChangePassword = (req, res) => {
       )
       .then(_ => {
         req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
-        res.redirect("/users");
+        res.redirect("/admin/users");
       })
       .catch(err => {
         res.end("something went wrong");

@@ -164,6 +164,7 @@ a:focus {
   padding: 10px 25px;
   color: #ffffff;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .custom_nav-container .navbar-toggler {
