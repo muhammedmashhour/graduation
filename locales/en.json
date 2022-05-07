@@ -1,6 +1,6 @@
 {
   "general": {
-    "system_name": "echo tax",
+    "system_name": "book store",
     "search_something": "search something",
     "login": "login",
     "logout": "logout",
@@ -111,6 +111,24 @@
       "manage_categories": "manage categories",
       "name": "name",
       "description": "description",
+      "action": "action"
+    },
+    "books": {
+      "books": "books",
+      "create_book": "create book",
+      "update_book": "update book",
+      "delete_book": "delete book",
+      "manage_books": "manage books",
+      "image": "image",
+      "name": "name",
+      "category": "category",
+      "description": "description",
+      "author": "author",
+      "price": "price",
+      "discount": "discount",
+      "isbn": "isbn",
+      "colors": "colors",
+      "pages": "pages",
       "action": "action"
     }
   },

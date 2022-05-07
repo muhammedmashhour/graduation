@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 
 const UsersSchema = mongoose.Schema({
-  created_at: {
-    type: Date,
-    default: Date.now()
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now()
-  },
   confirmed: {
     type: Boolean,
     default: false
@@ -41,7 +33,7 @@ const UsersSchema = mongoose.Schema({
   confirm_password: {
     type: String
   }
-});
+}, { timestamps: true });
 
 const Users = mongoose.model("user", UsersSchema);
 

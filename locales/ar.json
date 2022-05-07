@@ -1,6 +1,6 @@
 {
   "general": {
-    "system_name": "echo tax",
+    "system_name": "book store",
     "search_something": "إبحث عن شي",
     "login": "دخول",
     "logout": "خروج",
@@ -111,6 +111,24 @@
       "manage_categories": "إدارة التصنيفات",
       "name": "الاسم",
       "description": "وصف",
+      "action": "اختر عملية"
+    },
+    "books": {
+      "books": "الكتب",
+      "create_book": "إضافة كتاب",
+      "update_book": "تحديث كتاب",
+      "delete_book": "حذف كتاب",
+      "manage_books": "إدارة الكتب",
+      "image": "صورة الكتاب",
+      "name": "الاسم",
+      "category": "التصنيف",
+      "description": "الوصف",
+      "author": "المؤلف",
+      "price": "السعر",
+      "discount": "الخصومات",
+      "isbn": "isbn",
+      "colors": "الالوان",
+      "pages": "الصفحات",
       "action": "اختر عملية"
     }
   },

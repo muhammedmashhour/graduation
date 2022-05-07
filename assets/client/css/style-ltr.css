@@ -509,21 +509,21 @@ a:focus {
   font-size: 28px;
 }
 
-.blog_section {
+.book_section {
   background-color: #f5f6f9;
 }
 
-.blog_section .box {
+.book_section .box {
   margin-top: 55px;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 }
 
-.blog_section .box .img-box {
+.book_section .box .img-box {
   position: relative;
 }
 
-.blog_section .box .img-box .blog_date {
+.book_section .box .img-box .book_price {
   position: absolute;
   left: 25px;
   bottom: 0;
@@ -548,25 +548,40 @@ a:focus {
           transform: translateY(50%);
 }
 
-.blog_section .box .img-box img {
+.book_section .box .img-box img {
   width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.blog_section .box .detail-box {
+.book_section .box .detail-box {
   padding: 45px 25px 25px 25px;
   background: #ffffff;
 }
 
-.blog_section .box .detail-box h5 {
+.book_section .box .detail-box h5, .book_section .box .detail-box p {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book_section .box .detail-box h5 {
   font-weight: bold;
 }
 
-.blog_section .box .detail-box p {
+.book_section .box .detail-box p {
   font-size: 15px;
 }
 
-.blog_section .box .detail-box a {
-  color: #44b89d;
+.book_section .box .detail-box button {
+  width: 100%;
+  border: none;
+  padding: .5rem 1rem;
+  background: #44b89d;
+  color: #ffffff;
+  text-transform: capitalize;
 }
 
 .contact_section h2 {

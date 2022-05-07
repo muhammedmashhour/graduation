@@ -1,23 +1,15 @@
 const mongoose = require("mongoose");
 
-const RolesSchema = mongoose.Schema({
-  created_at: {
-    type: Date,
-    default: Date.now()
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now()
-  },
+const CategoriesSchema = mongoose.Schema({
   name: {
     type: String,
   },
   description: {
     type: String
   }
-});
+}, { timestamps: true });
 
 
-const Roles = mongoose.model('categories', RolesSchema);
+const Categories = mongoose.model('categories', CategoriesSchema);
 
-module.exports = Roles
+module.exports = Categories

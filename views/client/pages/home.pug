@@ -112,28 +112,28 @@ block body
           div.pt-5.text-center
             a(href="/categories", class="btn btn-info") #{lingua.client.general.read_more.toUpperCase()}
                   
-          
-  section.about_section.layout_padding
+  section.book_section.layout_padding
     .container
+      .heading_container.heading_center
+        h2 Books
+        p there are many books
       .row
-        .col-md-6
-          .img-box
-            img(src='/client/images/about-img.png' alt)
-        .col-md-6
-          .detail-box
-            .heading_container
-              h2.
-                
-                About Our Bookstore
-                
-            p.
+        for book, index in books
+          .col-md-4
+            .box
+              .img-box
+                img(src=(book.image ? `/files/books/${book.image}` : '/client/images/b1.jpg'))
+                h4.book_price
+                  span #{`${book.price} EG`}
+              .detail-box
+                h5= book.name ? book.name : "no name"
+                p= book.description ? book.description : "no description"
+                button(type="button", class="add-to-cart-btn", data-book-id=(book._id)) add to cart
               
-              At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae. Consequuntur obcaecati recusandae aliquam, amet doloribus eius dolores officiis cumque? Quibusdam praesentium pariatur sapiente mollitia, amet hic iusto voluptas! Iusto quo earum vitae excepturi, ipsam aliquid deleniti assumenda culpa deserunt.
-              
-            a(href).
-              
-              Read More
-              
+      if books.length > 6
+        div.pt-5.text-center
+          a(href="/books", class="btn btn-info") #{lingua.client.general.read_more.toUpperCase()}
+
   section.client_section.layout_padding
     .container
       .heading_container.heading_center
@@ -205,58 +205,6 @@ block body
                 h6.
                   
                   Student
-                  
-  section.blog_section.layout_padding
-    .container
-      .heading_container.heading_center
-        h2.
-          
-          From Our Blog
-          
-      .row
-        .col-md-6
-          .box
-            .img-box
-              img(src='/client/images/b1.jpg' alt)
-              h4.blog_date
-                span.
-                  
-                  19 January 2021
-                  
-            .detail-box
-              h5.
-                
-                Eius, dolor? Vel velit sed doloremque
-                
-              p.
-                
-                Incidunt magni explicabo ullam ipsa quo consequuntur eveniet illo? Aspernatur nam dolorem a neque? Esse eaque dolores hic debitis cupiditate, ad beatae voluptatem numquam dignissimos ab porro
-                
-              a(href).
-                
-                Read More
-                
-        .col-md-6
-          .box
-            .img-box
-              img(src='/client/images/b2.jpg' alt)
-              h4.blog_date
-                span.
-                  
-                  19 January 2021
-                  
-            .detail-box
-              h5.
-                
-                Minus aliquid alias porro iure fuga
-                
-              p.
-                
-                Officiis veritatis id illo eligendi repellat facilis animi adipisci praesentium. Tempore ab provident porro illo ex obcaecati deleniti enim sequi voluptas at. Harum veniam eos nisi distinctio! Porro, reiciendis eius.
-                
-              a(href).
-                
-                Read More
                 
   section.contact_section.layout_padding
     .container

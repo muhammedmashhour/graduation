@@ -141,10 +141,7 @@ const postUpdateUser = (req, res) => {
   try {
     Users.findByIdAndUpdate(
       req.params.userId,
-      {
-        updated_at: Date.now(),
-        ...req.body
-      }
+      req.body
     )
     .then(_ => {
       req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
@@ -208,7 +205,6 @@ const postChangePassword = (req, res) => {
       Users.findByIdAndUpdate(
         req.params.userId,
         {
-          updated_at: Date.now(),
           password: hashedPassword,
           confirm_password: hashedPassword
         }

@@ -77,7 +77,7 @@ aside.sidebar
           div(class="collapsible-header")
             div
               span.icon
-                i(class="material-icons") supervisor_account
+                i(class="material-icons") blur_linear
               span.title
                 | #{lingua.layouts.sidebar.categories}
             div
@@ -91,3 +91,24 @@ aside.sidebar
               if user.permissions.includes("read_categories")
                 li(class="collapse-item")
                   a(class="collapse-link", href="/admin/categories") #{lingua.layouts.sidebar.manage_categories}
+
+
+      if user.permissions.includes("read_books") || user.permissions.includes("create_books")
+        li(class=(page_name == "books" ? "active current-page" : ""))
+          div(class="collapsible-header")
+            div
+              span.icon
+                i(class="material-icons") book
+              span.title
+                | #{lingua.layouts.sidebar.books}
+            div
+              span.icon
+                i(class="material-icons") chevron_right
+          div(class="collapsible-body")
+            ul(class="collapse-list")
+              if user.permissions.includes("create_books")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/admin/books/create") #{lingua.layouts.sidebar.create_book}
+              if user.permissions.includes("read_books")
+                li(class="collapse-item")
+                  a(class="collapse-link", href="/admin/books") #{lingua.layouts.sidebar.manage_books}

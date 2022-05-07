@@ -1,9 +1,12 @@
 const Categories = require('../../models/Categories.model');
+const Books = require('../../models/Books.model');
 
 const getHome = async (req, res) => {
   const categories = await Categories.find().limit(9);
+  const books = await Books.find().limit();
   res.render("client/pages/home", {
-    categories
+    categories,
+    books
   });
 }
 

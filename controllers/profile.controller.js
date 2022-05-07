@@ -28,10 +28,7 @@ const postUpdateInfo = async (req, res) => {
     const user = await Users.findOne({_id: req.session.user.userId});
     Users.findByIdAndUpdate(
       user._id,
-      {
-        updated_at: Date.now(),
-        ...req.body
-      }
+      req.body
     ).then(_ => {
       res.redirect('/logout');
     })

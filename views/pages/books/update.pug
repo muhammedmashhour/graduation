@@ -1,0 +1,80 @@
+extends ../../core
+
+block title
+  title #{lingua.pages.books.update_book}
+
+block breadcrumbTitle
+  | #{lingua.pages.books.update_book}
+
+block breadcrumbs
+  | #{lingua.pages.books.update_book}
+
+block content
+  if validationErrors.length
+    div.row
+      div.col.s12
+        div(class="alert-danger card-panel")
+          each error, index in validationErrors
+            span(class="white-text text-darken-2") #{error.msg}
+  div(class="row")
+    div(class="col s12")
+      div(class="card")
+        div(class="card-content")
+          span(class="card-title") #{lingua.pages.books.update_book}
+          div(class="row")
+            div.col.s12
+              form(class="main-form", method="POST", enctype="multipart/form-data")
+                div(class="row")
+
+                  div(class="input-field col s12")
+                    label(class="no-position") #{lingua.pages.books.image}
+                    div(class="media-block")
+                      if book.image
+                        .media-view
+                          img(src=`/files/books/${book.image}`)
+                          a.clear-media.material-icons(href='#') clear
+                          a.view-media.material-icons(href=`/files/books/${book.image}` target='_blank') remove_red_eye
+                      label(for="id_image")
+                        div(class="media-container")
+                          span.material-icons insert_drive_file
+                          span.media-title upload media
+                      input(type="file", name="image", class="upload-media" id="id_image")
+                      input(type="hidden", name="edited_image", value=(book.image))
+
+                  div(class="input-field col s12")
+                    input(type="text", name="name" id="id_name" value=(book.name))
+                    label(for="id_name") #{lingua.pages.books.name}
+
+                  div(class="input-field col s12")
+                    select(name="category")
+                      each category, index in categories
+                        option(value=(category._id) selected=(book.category.toString() == category._id)) #{category.name}
+                    label #{lingua.pages.books.category}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="description" id="id_description" value=(book.description))
+                    label(for="id_description") #{lingua.pages.books.description}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="author" id="id_author" value=(book.author))
+                    label(for="id_author") #{lingua.pages.books.author}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="price" id="id_price" value=(book.price))
+                    label(for="id_price") #{lingua.pages.books.price}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="discount" id="id_discount" value=(book.discount))
+                    label(for="id_discount") #{lingua.pages.books.discount}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="colors" id="id_colors" value=(book.colors))
+                    label(for="id_colors") #{lingua.pages.books.colors}
+
+                  div(class="input-field col s12")
+                    input(type="text", name="pages" id="id_pages" value=(book.pages))
+                    label(for="id_pages") #{lingua.pages.books.pages}
+
+                  div(class="input-field col s12")
+                    button(class="btn waves-effect waves-light" type="submit") #{lingua.general.save}
+                      i(class="material-icons right") send

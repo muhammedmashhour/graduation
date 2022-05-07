@@ -1,6 +1,5 @@
 const Categories = require("../models/Categories.model");
 const validationResult = require("express-validator").validationResult;
-const permissions = require("../utilities/permissions");
 
 
 const getCategories = async (req, res) => {
@@ -15,7 +14,6 @@ const getCategories = async (req, res) => {
 const getCreateCategory = (req, res) => {
   res.render("pages/categories/create", {
     page_name: "categories",
-    permissions,
     validationErrors: req.flash("validationErrors")
   })
 };
@@ -45,7 +43,6 @@ const getUpdateCategory = async (req, res) => {
     res.render("pages/categories/update", {
       page_name: "categories",
       category,
-      permissions,
       validationErrors: req.flash("validationErrors")
     });
   } catch(e) {
@@ -64,15 +61,9 @@ const postUpdateCategory = (req, res) => {
 
   Categories.findByIdAndUpdate(
     req.params.categoryId,
-    {
-      updated_at: Date.now(),
-      ...req.body
-    }
+    req.body
   )
   .then(category => {
-
-    if (req.session.user.category === category.name) return res.redirect('/logout');
-
     req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
     res.redirect("/admin/categories");
   })

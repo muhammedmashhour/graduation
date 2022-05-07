@@ -64,14 +64,9 @@ const postUpdateRole = (req, res) => {
 
   Roles.findByIdAndUpdate(
     req.params.roleId,
-    {
-      updated_at: Date.now(),
-      ...req.body
-    }
+    req.body
   )
   .then(role => {
-
-    if (req.session.user.role === role.name) return res.redirect('/logout');
 
     req.flash("successMsg", `${res.lingua.content.general.item_updated}`);
     res.redirect("/admin/roles");
